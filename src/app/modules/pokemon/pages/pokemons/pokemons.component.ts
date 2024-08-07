@@ -13,13 +13,26 @@ export class PokemonsComponent implements OnInit {
   data: PokemonDto[] = [];
   offset: number = 0;
   limit: number = 10;
+  loading: boolean = true;
 
   ngOnInit(): void {
     this.getData()
   }
 
   getData() {
-    this.pokemonService.getAll(this.offset, this.limit).subscribe(data => this.data = data);
+    this.loading = true;
+    this.pokemonService.getAll(this.offset, this.limit).subscribe({
+      next: res => {
+        this.data = res;
+      },
+      error: err => {
+        console.error(err);
+        this.loading = false;
+      },
+      complete: () => {
+        this.loading = false;
+      }
+    });
   }
 
   nextPage() {
