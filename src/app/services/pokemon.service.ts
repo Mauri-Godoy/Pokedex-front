@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PokemonDto } from '../models/pokemon.dto';
 
+const URL = 'http://localhost:8080';
+const BASE_PATH = '/pokemon';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +17,11 @@ export class PokemonService {
     if (offset !== undefined && limit !== undefined) {
       params = params.set("offset", offset).set("limit", limit);
     }
-    return this.httpClient.get<PokemonDto[]>("http://localhost:8080/", { params });
+    return this.httpClient.get<PokemonDto[]>(URL + BASE_PATH, { params });
+  }
+
+  getById(id: string) {
+    return this.httpClient.get<PokemonDto>(URL + BASE_PATH + "/" + id);
   }
 
 }
