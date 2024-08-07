@@ -4,8 +4,12 @@ import { PokemonModule } from './modules/pokemon/pokemon.module';
 
 const routes: Routes = [
   {
-    path: '**',
+    path: 'pokemon',
     loadChildren: () => import('./modules/pokemon/pokemon.module').then(m => m.PokemonModule)
+  },
+  {
+    path: '**',
+    redirectTo: "/pokemon"
   }
 ];
 

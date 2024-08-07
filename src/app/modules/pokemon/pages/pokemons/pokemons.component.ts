@@ -11,12 +11,24 @@ export class PokemonsComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   data: PokemonDto[] = [];
+  offset: number = 0;
+  limit: number = 10;
 
   ngOnInit(): void {
     this.getData()
   }
 
   getData() {
-    this.pokemonService.getAll().subscribe(data => this.data = data);
+    this.pokemonService.getAll(this.offset, this.limit).subscribe(data => this.data = data);
+  }
+
+  nextPage() {
+    this.offset += this.limit;
+    this.getData()
+  }
+
+  previousPage() {
+    this.offset -= this.limit;
+    this.getData()
   }
 }

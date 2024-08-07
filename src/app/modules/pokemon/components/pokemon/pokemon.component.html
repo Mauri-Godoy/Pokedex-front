@@ -1,0 +1,7 @@
+<a [routerLink]="'' + pokemon.id" class="bg-teal-100 shadow-md py-2 rounded-sm flex justify-center flex-col">
+  <img [src]="pokemon.sprites?.front_default" [alt]="pokemon.name" class="drop-shadow-2xl">
+  <div class="bg-white rounded mx-2">
+    <p class="px-2 text-gray-500">#{{pokemon.id}}</p>
+    <h6 class="text-center uppercase font-semibold">{{pokemon.name}}</h6>
+  </div>
+</a>
