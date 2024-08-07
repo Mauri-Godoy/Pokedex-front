@@ -9,4 +9,19 @@ export class PokemonComponent {
 
   @Input() pokemon!: PokemonDto
 
+  get types() {
+    return this.pokemon.types?.map(item => item.type?.name).join(' - ');
+  }
+
+  get abilities() {
+    return this.pokemon.abilities?.map(item => item.ability?.name).join(' - ');
+  }
+
+  get weight() {
+    return (this.pokemon?.weight || 0) / 10 + ' kg';
+  }
+
+  get height() {
+    return (this.pokemon?.height || 0) / 10 + ' m';
+  }
 }
