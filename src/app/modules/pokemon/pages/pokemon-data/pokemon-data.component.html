@@ -16,10 +16,10 @@
 
   <div class="flex justify-center items-center w-full gap-5 text-xl">
     <img [src]="pokemon.url" [alt]="pokemon.name" class="drop-shadow-2xl h-96 bg-white rounded-full p-4">
-    <div class="flex flex-col w-3/6 gap-6">
+    <div class="flex flex-col w-2/6 gap-6">
       <div class="rounded w-full uppercase">
         <p class="bg-gray-100 text-center font-semibold p-1">Tipo</p>
-        <div class="bg-white p-1">
+        <div class="bg-white p-2">
           <ul>
             <li *ngFor="let item of pokemon.types"> {{item}}</li>
           </ul>
@@ -27,7 +27,7 @@
       </div>
       <div class="rounded w-full uppercase">
         <p class="bg-gray-100 text-center font-semibold p-1">Habilidades</p>
-        <div class="bg-white p-1">
+        <div class="bg-white p-2">
           <ul>
             <li *ngFor="let item of pokemon.abilities"> {{item}}</li>
           </ul>
@@ -35,21 +35,21 @@
       </div>
       <div class="rounded w-full uppercase">
         <p class="bg-gray-100 text-center font-semibold p-1">Peso</p>
-        <div class="bg-white p-1">
+        <div class="bg-white p-2">
           <p>{{weight}}</p>
         </div>
       </div>
       <div class="rounded w-full uppercase">
         <p class="bg-gray-100 text-center font-semibold p-1">Altura</p>
-        <div class="bg-white p-1">
+        <div class="bg-white p-2">
           <p>{{height}}</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="rounded text-xl">
+  <div class="rounded text-xl w-5/6 mx-auto">
     <p class="bg-gray-100 text-center font-semibold p-1">Descripción</p>
-    <p class="bg-white p-1">{{pokemon.description}}</p>
+    <p class="bg-white p-2">{{pokemon.description}}</p>
   </div>
 </div>
