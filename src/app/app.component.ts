@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 import { LoadingService } from './services/loading.service';
 import { Subscription } from 'rxjs';
 @Component({
@@ -13,6 +14,8 @@ export class AppComponent implements OnInit {
   constructor(private loadingService: LoadingService) { }
 
   ngOnInit(): void {
+    AOS.init();
+
     this.loaderSubscription = this.loadingService.loaderState$.subscribe(
       (state: boolean) => {
         this.isLoading = state;
