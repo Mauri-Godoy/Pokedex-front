@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PokemonDto } from '../models/pokemon.dto';
 
-const URL = 'http://localhost:8080';
+const URL = 'https://pokedex-api-swu8.onrender.com';
 const BASE_PATH = '/pokemon';
 @Injectable({
   providedIn: 'root'

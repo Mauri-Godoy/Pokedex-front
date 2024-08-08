@@ -10,11 +10,11 @@ export class PokemonComponent {
   @Input() pokemon!: PokemonDto
 
   get types() {
-    return this.pokemon.types?.join(' - ');
+    return this.pokemon.types?.join(' | ');
   }
 
   get abilities() {
-    return this.pokemon.abilities?.join(' - ');
+    return this.pokemon.abilities?.join(' | ');
   }
 
   get weight() {

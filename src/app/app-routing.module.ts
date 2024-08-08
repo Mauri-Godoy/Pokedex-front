@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PokemonModule } from './modules/pokemon/pokemon.module';
 
 const routes: Routes = [
   {

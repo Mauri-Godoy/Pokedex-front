@@ -50,7 +50,7 @@ export class PokemonDataComponent implements OnInit {
     this.router.navigate(['pokemon', nextId]);
   }
   get types() {
-    return this.pokemon.types?.join(' - ');
+    return this.pokemon.types?.join(' | ');
   }
 
   get weight() {
