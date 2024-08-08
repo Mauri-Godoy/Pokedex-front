@@ -1,3 +1,10 @@
+@import url('https://fonts.google.com/specimen/Fira+Code');
+
+body,
+.pokemon-text {
+  font-family: 'Fira Code', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

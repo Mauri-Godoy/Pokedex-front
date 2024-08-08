@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../../../services/pokemon.service';
 import { PokemonDto } from 'src/app/models/pokemon.dto';
+import { LoadingService } from '../../../../services/loading.service';
 
 @Component({
   selector: 'app-pokemons',
@@ -8,29 +9,28 @@ import { PokemonDto } from 'src/app/models/pokemon.dto';
 })
 export class PokemonsComponent implements OnInit {
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private loadingService: LoadingService) { }
 
   data: PokemonDto[] = [];
   offset: number = 0;
   limit: number = 10;
-  loading: boolean = true;
 
   ngOnInit(): void {
     this.getData()
   }
 
   getData() {
-    this.loading = true;
+    this.loadingService.showLoader()
     this.pokemonService.getAll(this.offset, this.limit).subscribe({
       next: res => {
         this.data = res;
       },
       error: err => {
         console.error(err);
-        this.loading = false;
+        this.loadingService.hideLoader()
       },
       complete: () => {
-        this.loading = false;
+        this.loadingService.hideLoader()
       }
     });
   }

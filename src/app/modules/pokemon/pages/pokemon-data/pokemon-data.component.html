@@ -1,5 +1,55 @@
-<div class="container h-full w-full flex flex-col justify-center items-center mx-auto bg-white">
-  <img [src]="pokemon.url" [alt]="pokemon.name" class="drop-shadow-2xl h-80">
-  <h1 class="text-center uppercase font-bold text-4xl">#{{pokemon.id}}
-    {{pokemon.name}}</h1>
+<div class="flex justify-around my-4" *ngIf="pokemon; else noData">
+  <button type="button" class="btn-teal" [ngClass]="{'btn-disabled': !pokemon.id || pokemon.id <= 1}"
+    (click)="previous()">Anterior</button>
+  <button type="button" class="btn-teal" (click)="home()">Inicio</button>
+  <button type="button" class="btn-teal" (click)="next()">Siguiente</button>
+</div>
+
+<ng-template #noData>
+  <p class="text-center text-4xl mt-80">No existe un pokemon con ese identificador</p>
+</ng-template>
+
+
+<div class="container mx-auto bg-teal-100 p-12 gap-7 flex flex-col" *ngIf="pokemon">
+
+  <h6 class="text-center uppercase font-bold text-8xl pt-1">#{{pokemon.id}} {{pokemon.name}}</h6>
+
+  <div class="flex justify-center items-center w-full gap-5 text-xl">
+    <img [src]="pokemon.url" [alt]="pokemon.name" class="drop-shadow-2xl h-96 bg-white rounded-full p-4">
+    <div class="flex flex-col w-3/6 gap-6">
+      <div class="rounded w-full uppercase">
+        <p class="bg-gray-100 text-center font-semibold p-1">Tipo</p>
+        <div class="bg-white p-1">
+          <ul>
+            <li *ngFor="let item of pokemon.types"> {{item}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rounded w-full uppercase">
+        <p class="bg-gray-100 text-center font-semibold p-1">Habilidades</p>
+        <div class="bg-white p-1">
+          <ul>
+            <li *ngFor="let item of pokemon.abilities"> {{item}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rounded w-full uppercase">
+        <p class="bg-gray-100 text-center font-semibold p-1">Peso</p>
+        <div class="bg-white p-1">
+          <p>{{weight}}</p>
+        </div>
+      </div>
+      <div class="rounded w-full uppercase">
+        <p class="bg-gray-100 text-center font-semibold p-1">Altura</p>
+        <div class="bg-white p-1">
+          <p>{{height}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rounded text-xl">
+    <p class="bg-gray-100 text-center font-semibold p-1">Descripción</p>
+    <p class="bg-white p-1">{{pokemon.description}}</p>
+  </div>
 </div>

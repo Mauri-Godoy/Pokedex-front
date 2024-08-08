@@ -1,5 +1,5 @@
 <div class="flex justify-around my-4" *ngIf="data.length > 0">
-  <button type="button" class="btn-teal" [disabled]="offset <= 0" [ngClass]="{'btn-disabled': offset <= 0}"
+  <button type="button" class="btn-teal" [ngClass]="{'btn-disabled': offset <= 0}"
     (click)="previousPage()">Anterior</button>
   <button type="button" class="btn-teal" (click)="nextPage()">Siguiente</button>
 </div>
@@ -7,5 +7,3 @@
 <div class="grid grid-cols-5 gap-10 container m-auto py-5">
   <app-pokemon *ngFor="let item of data" [pokemon]="item" data-aos="zoom-in"></app-pokemon>
 </div>
-
-<app-loader *ngIf="loading"></app-loader>
