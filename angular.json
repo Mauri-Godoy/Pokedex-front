@@ -26,8 +26,7 @@
               {
                 "input": "src/styles.css",
                 "inject": true,
-                "bundleName": "styles",
-                "lazy": false
+                "bundleName": "styles"
               },
               "./node_modules/aos/dist/aos.css"
             ],
